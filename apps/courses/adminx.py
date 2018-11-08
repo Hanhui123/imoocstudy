@@ -17,9 +17,9 @@ class CourseAdmin(object):
 
 # 课程章节注册
 class LessonAdmin(object):
-    list_display = ['lesson', 'name', 'add_time']
-    search_fields = ['lesson', 'name']
-    list_filter = ['lesson', 'name', 'add_time']
+    list_display = ['course', 'name', 'add_time']
+    search_fields = ['course', 'name']
+    list_filter = ['course__name', 'name', 'add_time']
 
 
 # 视频信息
@@ -33,7 +33,7 @@ class VideoAdmin(object):
 class CourseResourceAdmin(object):
     list_display = ['course', 'name', 'download', 'add_time']
     search_fields = ['course', 'name', 'download']
-    list_filter = ['course', 'name', 'download', 'add_time']
+    list_filter = ['course__name', 'name', 'download', 'add_time']
 
 
 xadmin.site.register(Course, CourseAdmin)
