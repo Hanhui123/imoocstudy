@@ -138,5 +138,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
+
 # 告诉Django认证这个表
 AUTH_USER_MODEL = 'users.UserProfile'
+
+# AUTH 方法（支持邮箱登录）
+AUTHENTICATION_BACKENDS = ('users.views.CustomBackend',)

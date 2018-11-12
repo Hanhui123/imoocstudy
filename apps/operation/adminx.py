@@ -18,9 +18,9 @@ class CourseCommentsAdmin(object):
 
 
 class UserFavoriteAdmin(object):
-    list_display = ['fav_id', 'fav_type', 'add_time']
-    search_fields = ['fav_id', 'fav_type']
-    list_filter = ['fav_id', 'fav_type', 'add_time']
+    list_display = ['user', 'fav_id', 'fav_type', 'add_time']
+    search_fields = ['user', 'fav_id', 'fav_type']
+    list_filter = ['user', 'fav_id', 'fav_type', 'add_time']
 
 
 class UserMessageAdmin(object):
