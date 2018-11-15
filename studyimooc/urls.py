@@ -13,11 +13,13 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url,include
-from django.contrib import admin
+from django.conf.urls import url, include
 from django.views.generic import TemplateView
 from users import views
+from organization.views import OrgView
 import xadmin
+from django.views.static import serve # 处理静态文件的
+from studyimooc.settings import MEDIA_ROOT
 
 urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
@@ -25,7 +27,7 @@ urlpatterns = [
     # 登录页面
     url(r'^login/$', views.LoginView.as_view(), name="login"),
     # 注册页面
-    url(r'^register/$', views.RegitsterView.as_view(), name="register"),
+    url(r'^register/$', views.RegisterView.as_view(), name="register"),
     #  验证码
     url(r'^captcha/', include('captcha.urls')),
     # 验证用户注册后，在邮件里点击注册链接
@@ -36,6 +38,11 @@ urlpatterns = [
     url(r'^reset/(?P<active_code>.*)/$', views.ResetView.as_view(), name='reset_pwd'),
     # 重置密码表单 POST 请求
     url(r'^modify_pwd/$', views.ModifyPwdView.as_view(), name="modify_pwd"),
+    # 课程机构首页
+    url(r'org_list/$', OrgView.as_view(), name="org_list"),
+    # 配置上传文件的函数
+    url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT})
+
 
 
 

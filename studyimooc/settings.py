@@ -73,6 +73,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -146,9 +147,16 @@ AUTH_USER_MODEL = 'users.UserProfile'
 # AUTH 方法（支持邮箱登录）
 AUTHENTICATION_BACKENDS = ('users.views.CustomBackend',)
 
+# 发送邮箱配置
 EMAIL_HOST = 'smtp.qq.com'
 EMAIL_PORT = 25
 EMAIL_HOST_USER = '995403221@qq.com'
 EMAIL_HOST_PASSWORD = 'nuanxin20140901@'
 EMAIL_USE_TLS = False
 EMAIL_FROM = '995403221@qq.com'
+
+# 上传文件配置
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
