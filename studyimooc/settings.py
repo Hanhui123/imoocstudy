@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'organization.apps.OrganizationConfig',
     'xadmin',
     'crispy_forms',
+    'captcha',
 
 ]
 
@@ -144,3 +145,10 @@ AUTH_USER_MODEL = 'users.UserProfile'
 
 # AUTH 方法（支持邮箱登录）
 AUTHENTICATION_BACKENDS = ('users.views.CustomBackend',)
+
+EMAIL_HOST = 'smtp.qq.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = '995403221@qq.com'
+EMAIL_HOST_PASSWORD = 'nuanxin20140901@'
+EMAIL_USE_TLS = False
+EMAIL_FROM = '995403221@qq.com'
